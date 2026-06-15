@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartea Mea – Categorii</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .categorii-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 52px 24px 72px;
+    }
+
+    .categorii-page h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--green-dark);
+      font-weight: 700;
+      margin-bottom: 36px;
+    }
+
+   
+    .categorii-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .cat-big-card {
+      border: 2px solid #222;
+      border-radius: 14px;
+      padding: 36px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: var(--white);
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--green-dark);
+      min-height: 150px;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.18s;
+    }
+
+    .cat-big-card:hover {
+      border-color: var(--green-mid);
+      background: #f0faf3;
+      box-shadow: 0 6px 22px rgba(46,106,63,0.13);
+      transform: translateY(-4px);
+    }
+
+   
+    .cat-big-card.active {
+      border-color: var(--green-mid);
+      background: #f0faf3;
+    }
+
+    .cat-big-icon {
+      width: 62px;
+      height: 62px;
+      background: #e4f2e8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      transition: background 0.2s;
+    }
+
+    .cat-big-card:hover .cat-big-icon,
+    .cat-big-card.active .cat-big-icon {
+      background: #c6e8cf;
+    }
+
+    .cat-big-card span {
+      font-size: 0.97rem;
+      font-weight: 700;
+      text-align: center;
+      color: var(--green-dark);
+      font-family: 'Lato', sans-serif;
+    }
+
+   
+    @media (max-width: 900px) {
+      .categorii-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .categorii-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .cat-big-card {
+        padding: 24px 12px 20px;
+        min-height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <img src="logo1.png" alt="Logo Cartea Mea" />
+        <span>CARTEA MEA</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="categorii.html" class="active">Categorii</a>
+        <a href="despre-noi.html">Despre noi</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="categorii-page">
+    <h1>Alege o categorie</h1>
+
+    <div class="categorii-grid">
+
+      <a href="catalog.html" class="cat-big-card">
+        <div class="cat-big-icon">📚</div>
+        <span>Ficțiune</span>
+      </a>
+
+      <a href="catalog.html" class="cat-big-card active">
+        <div class="cat-big-icon">📖</div>
+        <span>Non-Ficțiune</span>
+      </a>
+
+      <a href="catalog.html" class="cat-big-card">
+        <div class="cat-big-icon">💡</div>
+        <span>Dezvoltare Personală</span>
+      </a>
+
+      <a href="catalog.html" class="cat-big-card">
+        <div class="cat-big-icon">🐉</div>
+        <span>SF &amp; Fantasy</span>
+      </a>
+
+      <a href="catalog.html" class="cat-big-card">
+        <div class="cat-big-icon">🧸</div>
+        <span>Pentru Copii</span>
+      </a>
+
+      <a href="catalog.html" class="cat-big-card">
+        <div class="cat-big-icon">❤️</div>
+        <span>Romance</span>
+      </a>
+
+      <a href="catalog.html" class="cat-big-card">
+        <div class="cat-big-icon">💼</div>
+        <span>Business</span>
+      </a>
+
+      <a href="catalog.html" class="cat-big-card">
+        <div class="cat-big-icon">🏛️</div>
+        <span>Istorie</span>
+      </a>
+
+    </div>
+  </div>
+
+  
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">CARTEA MEA</div>
+        <p>Librărie Online • Cahul, Moldova</p>
+      </div>
+      <div class="footer-links">
+        <h4>Linkuri Rapide</h4>
+        <ul>
+          <li><a href="catalog.html">• Catalog</a></li>
+          <li><a href="categorii.html">• Categorii</a></li>
+          <li><a href="despre-noi.html">• Despre Noi</a></li>
+          <li><a href="contact.html">• Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>+373 69 123 456</p>
+        <p>contact@carteamea.md</p>
+        <p>Str. Ștefan cel Mare 45, Cahul</p>
+      </div>
+      <div class="footer-social">
+        <h4>Urmărește-ne</h4>
+        <div class="social-icons">
+          <a href="#" class="social-icon">f</a>
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">t</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cartea Mea – Toate drepturile rezervate</span>
+      <span>
+        <a href="#">Politică de Confidențialitate</a> &nbsp;|&nbsp;
+        <a href="#">Termeni și Condiții</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>

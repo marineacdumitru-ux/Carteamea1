@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartea Mea – Catalog</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+   
+    .catalog-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+   
+    .filters-sidebar {
+      background: var(--white);
+      border: 1.5px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      position: sticky;
+      top: 80px;
+    }
+
+    .filters-sidebar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--green-dark);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #444;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .filter-select {
+      width: 100%;
+      border: 1.5px solid var(--gray-border);
+      border-radius: 7px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      color: #333;
+      font-family: 'Lato', sans-serif;
+      background: #fff;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .filter-select:focus {
+      border-color: var(--green-mid);
+    }
+
+    .price-row {
+      display: flex;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .price-input {
+      flex: 1;
+      min-width: 0;
+      width: 0;
+      border: 1.5px solid var(--gray-border);
+      border-radius: 7px;
+      padding: 8px 6px;
+      font-size: 0.83rem;
+      color: #333;
+      font-family: 'Lato', sans-serif;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .price-input:focus {
+      border-color: var(--green-mid);
+    }
+
+    .price-input::placeholder {
+      color: #bbb;
+    }
+
+    .filter-divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 4px 0 20px;
+    }
+
+    .btn-filter-apply {
+      width: 100%;
+      background: var(--green-btn);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 10px 0;
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-family: 'Lato', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 14px rgba(46,125,70,0.2);
+      margin-bottom: 10px;
+    }
+
+    .btn-filter-apply:hover {
+      background: var(--green-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-filter-reset {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #999;
+      font-size: 0.8rem;
+      font-family: 'Lato', sans-serif;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .btn-filter-reset:hover {
+      color: var(--green-mid);
+    }
+
+    
+    .catalog-content {}
+
+    .catalog-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .catalog-top h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--green-dark);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .catalog-top p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .sort-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sort-row span {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .sort-select {
+      border: 1.5px solid #222;
+      border-radius: 7px;
+      padding: 7px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: 'Lato', sans-serif;
+      background: #fff;
+      cursor: pointer;
+      color: #111;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .sort-select:focus {
+      border-color: var(--green-mid);
+    }
+
+    
+    .catalog-books-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .catalog-books-grid .book-card img {
+      height: 220px;
+      object-fit: cover;
+      background: #e8f0eb;
+    }
+
+    
+    .book-placeholder {
+      height: 220px;
+      background: linear-gradient(135deg, #d4e8da 0%, #b8d4c0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--green-mid);
+    }
+
+    .book-placeholder .ph-icon {
+      font-size: 2.8rem;
+      opacity: 0.6;
+    }
+
+    .book-placeholder .ph-text {
+      font-size: 0.78rem;
+      font-weight: 700;
+      opacity: 0.55;
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .book-price {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-top: 4px;
+    }
+
+    
+    @media (max-width: 900px) {
+      .catalog-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .filters-sidebar {
+        position: static;
+      }
+      .catalog-books-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .catalog-books-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .catalog-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <img src="logo1.png" alt="Logo Cartea Mea" />
+        <span>CARTEA MEA</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="catalog.html" class="active">Catalog</a>
+        <a href="categorii.html">Categorii</a>
+        <a href="despre-noi.html">Despre noi</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="catalog-wrapper">
+
+    
+    <aside class="filters-sidebar">
+      <h3>Filtre</h3>
+
+      <div class="filter-group">
+        <label>Categorie</label>
+        <select class="filter-select">
+          <option value="">Toate categoriile</option>
+          <option>Ficțiune</option>
+          <option>Non-Ficțiune</option>
+          <option>Dezvoltare Personală</option>
+          <option>SF &amp; Fantasy</option>
+          <option>Copii</option>
+          <option>Romance</option>
+          <option>Business</option>
+          <option>Istorie</option>
+        </select>
+      </div>
+
+      <hr class="filter-divider" />
+
+      <div class="filter-group">
+        <label>Preț (MDL)</label>
+        <div class="price-row">
+          <input type="number" class="price-input" placeholder="Min" min="0" />
+          <input type="number" class="price-input" placeholder="Max" min="0" />
+        </div>
+      </div>
+
+      <hr class="filter-divider" />
+
+      <div class="filter-group">
+        <label>Autor</label>
+        <select class="filter-select">
+          <option value="">Toți autorii</option>
+          <option>Marin Preda</option>
+          <option>Liviu Rebreanu</option>
+          <option>Jane Austen</option>
+          <option>James Clear</option>
+          <option>George Orwell</option>
+          <option>J.K. Rowling</option>
+          <option>Stephen Hawking</option>
+          <option>Daniel Goleman</option>
+          <option>Grant Cardone</option>
+        </select>
+      </div>
+
+      <button class="btn-filter-apply">Aplică filtrele</button>
+      <button class="btn-filter-reset">Resetează filtrele</button>
+    </aside>
+
+    
+    <div class="catalog-content">
+      <div class="catalog-top">
+        <div>
+          <h1>Catalog</h1>
+          <p>Descoperă toate cărțile noastre</p>
+        </div>
+        <div class="sort-row">
+          <span>Sortează după</span>
+          <select class="sort-select">
+            <option>Cele mai noi</option>
+            <option>Preț crescător</option>
+            <option>Preț descrescător</option>
+            <option>Alfabetic</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="catalog-books-grid">
+
+        <div class="book-card">
+          <img src="Imagini/Pădurea_spânzuraților.jpg" alt="Pădurea Spânzuraților"
+               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📗</span><span class=\'ph-text\'>Pădurea Spânzuraților</span>';return d;}()),this);" />
+          <div class="book-info">
+            <p class="book-title">Pădurea Spânzuraților</p>
+            <p class="book-author">Liviu Rebreanu</p>
+            <p class="book-price">190 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="Imagini/mandrie-si-prejudecata-de-jane-austen-2023-p337038-0.jfif" alt="Mândrie și prejudecată"
+               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📘</span><span class=\'ph-text\'>Mândrie și prejudecată</span>';return d;}()),this);" />
+          <div class="book-info">
+            <p class="book-title">Mândrie și prejudecată</p>
+            <p class="book-author">Jane Austen</p>
+            <p class="book-price">175 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="Imagini/image_67203329.jpg" alt="Atomic Habits"
+               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📙</span><span class=\'ph-text\'>Atomic Habits</span>';return d;}()),this);" />
+          <div class="book-info">
+            <p class="book-title">Atomic Habits</p>
+            <p class="book-author">James Clear</p>
+            <p class="book-price">240 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="Imagini/images12.jfif" alt="Harry Potter și Piatra Filozofală"
+               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📕</span><span class=\'ph-text\'>Harry Potter și Piatra Filozofală</span>';return d;}()),this);" />
+          <div class="book-info">
+            <p class="book-title">Harry Potter și Piatra Filozofală</p>
+            <p class="book-author">J.K. Rowling</p>
+            <p class="book-price">219 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="Imagini/51681-0.jpeg" alt="1984"
+               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📗</span><span class=\'ph-text\'>1984</span>';return d;}()),this);" />
+          <div class="book-info">
+            <p class="book-title">1984</p>
+            <p class="book-author">George Orwell</p>
+            <p class="book-price">190 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="Imagini/978-973-50-4546-7.jpg" alt="Scurtă istorie a timpului"
+               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📘</span><span class=\'ph-text\'>Scurtă istorie a timpului</span>';return d;}()),this);" />
+          <div class="book-info">
+            <p class="book-title">Scurtă istorie a timpului</p>
+            <p class="book-author">Stephen Hawking</p>
+            <p class="book-price">250 MDL</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">CARTEA MEA</div>
+        <p>Librărie Online • Cahul, Moldova</p>
+      </div>
+      <div class="footer-links">
+        <h4>Linkuri Rapide</h4>
+        <ul>
+          <li><a href="catalog.html">• Catalog</a></li>
+          <li><a href="categorii.html">• Categorii</a></li>
+          <li><a href="despre-noi.html">• Despre Noi</a></li>
+          <li><a href="contact.html">• Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>+373 69 123 456</p>
+        <p>contact@carteamea.md</p>
+        <p>Str. Ștefan cel Mare 45, Cahul</p>
+      </div>
+      <div class="footer-social">
+        <h4>Urmărește-ne</h4>
+        <div class="social-icons">
+          <a href="#" class="social-icon">f</a>
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">t</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cartea Mea – Toate drepturile rezervate</span>
+      <span>
+        <a href="#">Politică de Confidențialitate</a> &nbsp;|&nbsp;
+        <a href="#">Termeni și Condiții</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>

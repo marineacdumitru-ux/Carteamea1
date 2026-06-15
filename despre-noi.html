@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartea Mea – Despre noi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .despre-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .despre-image {
+      width: 100%;
+      border-radius: 6px;
+      object-fit: cover;
+      height: 380px;
+      background: #c8b89a;
+      display: block;
+    }
+
+   
+    .despre-image-placeholder {
+      width: 100%;
+      height: 380px;
+      background: linear-gradient(135deg, #c8b89a, #a0886a);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      opacity: 0.6;
+    }
+
+    .despre-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--green-dark);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .despre-intro {
+      font-size: 1.05rem;
+      color: #222;
+      line-height: 1.65;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .despre-item {
+      margin-bottom: 22px;
+    }
+
+    .despre-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 5px;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .despre-item p {
+      font-size: 0.93rem;
+      color: #333;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 768px) {
+      .despre-page {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <img src="logo1.png" alt="Logo Cartea Mea"
+             onerror="this.style.display='none';" />
+        <span>CARTEA MEA</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="categorii.html">Categorii</a>
+        <a href="despre-noi.html" class="active">Despre noi</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="despre-page">
+
+     
+      <div>
+        <img src="Imagini/Screenshot_10.png" alt="Librărie"
+             class="despre-image"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="despre-image-placeholder" style="display:none;">📚</div>
+      </div>
+
+      <div class="despre-content">
+        <h1>Despre Cartea Mea</h1>
+        <p class="despre-intro">
+          Cartea Mea este o librărie online din Cahul, Moldova,
+          creată din pasiunea pentru cărți și dorința de a aduce
+          lectura mai aproa de fiecare.
+        </p>
+
+        <div class="despre-item">
+          <h3>Misiunea noastra</h3>
+          <p>Sa oferim acces faoi la cărți de calitate pentru toate varstele.</p>
+        </div>
+
+        <div class="despre-item">
+          <h3>Viziunea noastra</h3>
+          <p>O comunitate in care lectura inspira și transformă vieți.</p>
+        </div>
+
+        <div class="despre-item">
+          <h3>Valorile noastre</h3>
+          <p>Calitate, diversitate, incredere și respect pentru cititori</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">CARTEA MEA</div>
+        <p>Librărie Online • Cahul, Moldova</p>
+      </div>
+      <div class="footer-links">
+        <h4>Linkuri Rapide</h4>
+        <ul>
+          <li><a href="catalog.html">• Catalog</a></li>
+          <li><a href="categorii.html">• Categorii</a></li>
+          <li><a href="despre-noi.html">• Despre Noi</a></li>
+          <li><a href="contact.html">• Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>+373 69 123 456</p>
+        <p>contact@carteamea.md</p>
+        <p>Str. Ștefan cel Mare 45, Cahul</p>
+      </div>
+      <div class="footer-social">
+        <h4>Urmărește-ne</h4>
+        <div class="social-icons">
+          <a href="#" class="social-icon">f</a>
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">t</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cartea Mea – Toate drepturile rezervate</span>
+      <span>
+        <a href="#">Politică de Confidențialitate</a> &nbsp;|&nbsp;
+        <a href="#">Termeni și Condiții</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>
