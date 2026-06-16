@@ -226,19 +226,25 @@
       </div>
 
       <div class="contact-form-wrap">
-        <form>
+        <form action="https://api.sheetmonkey.io/form/emnpQ4orfUFcjezgvYzMAD" method="post">
+          
           <div class="form-group">
             <label>Nume</label>
-            <input type="text" class="form-input" placeholder="Introdu numele tău" />
+            <input type="text" name="Nume" class="form-input" placeholder="Introdu numele tău" required />
           </div>
+          
           <div class="form-group">
             <label>Email</label>
-            <input type="email" class="form-input" placeholder="Introdu adresa de email" />
+            <input type="email" name="Email" class="form-input" placeholder="Introdu adresa de email" required />
           </div>
+          
           <div class="form-group">
             <label>Mesaj</label>
-            <textarea class="form-textarea" placeholder="Scrie mesajul tău aici..."></textarea>
+            <textarea name="Mesaj" class="form-textarea" placeholder="Scrie mesajul tău aici..." required></textarea>
           </div>
+          
+          <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+          
           <button type="submit" class="btn-trimite">Trimite</button>
         </form>
       </div>
@@ -252,8 +258,8 @@
         <div class="footer-logo">CARTEA MEA</div>
         <p>Librărie Online • Cahul, Moldova</p>
       </div>
-      <div class="footer-links">
-        <h4>Linkuri Rapide</h4>
-        <ul>
-          <li><a href="catalog.html">• Catalog</a></li>
-          <li><a href="categor
+    </div>
+  </footer>
+
+</body>
+</html>
