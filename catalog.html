@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cartea Mea – Catalog</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700&family=Lato:wght=400;700&display=swap" rel="stylesheet" />
   <style>
-   
     .catalog-wrapper {
       max-width: 1100px;
       margin: 0 auto;
@@ -18,10 +17,9 @@
       align-items: start;
     }
 
-   
     .filters-sidebar {
-      background: var(--white);
-      border: 1.5px solid var(--gray-border);
+      background: var(--white, #fff);
+      border: 1.5px solid var(--gray-border, #ddd);
       border-radius: 12px;
       padding: 24px 20px;
       position: sticky;
@@ -31,7 +29,7 @@
     .filters-sidebar h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
-      color: var(--green-dark);
+      color: var(--green-dark, #1e4d2b);
       margin-bottom: 20px;
       font-weight: 700;
     }
@@ -52,7 +50,7 @@
 
     .filter-select {
       width: 100%;
-      border: 1.5px solid var(--gray-border);
+      border: 1.5px solid var(--gray-border, #ddd);
       border-radius: 7px;
       padding: 8px 12px;
       font-size: 0.85rem;
@@ -61,11 +59,6 @@
       background: #fff;
       cursor: pointer;
       outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .filter-select:focus {
-      border-color: var(--green-mid);
     }
 
     .price-row {
@@ -78,23 +71,13 @@
       flex: 1;
       min-width: 0;
       width: 0;
-      border: 1.5px solid var(--gray-border);
+      border: 1.5px solid var(--gray-border, #ddd);
       border-radius: 7px;
       padding: 8px 6px;
       font-size: 0.83rem;
       color: #333;
-      font-family: 'Lato', sans-serif;
       text-align: center;
       outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .price-input:focus {
-      border-color: var(--green-mid);
-    }
-
-    .price-input::placeholder {
-      color: #bbb;
     }
 
     .filter-divider {
@@ -105,24 +88,16 @@
 
     .btn-filter-apply {
       width: 100%;
-      background: var(--green-btn);
+      background: var(--green-btn, #2e7d46);
       color: #fff;
       border: none;
       border-radius: 24px;
       padding: 10px 0;
       font-size: 0.88rem;
       font-weight: 700;
-      font-family: 'Lato', sans-serif;
       cursor: pointer;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 14px rgba(46,125,70,0.2);
       margin-bottom: 10px;
-    }
-
-    .btn-filter-apply:hover {
-      background: var(--green-light);
-      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(46,125,70,0.2);
     }
 
     .btn-filter-reset {
@@ -131,17 +106,12 @@
       border: none;
       color: #999;
       font-size: 0.8rem;
-      font-family: 'Lato', sans-serif;
       cursor: pointer;
-      transition: color 0.2s;
     }
 
     .btn-filter-reset:hover {
-      color: var(--green-mid);
+      color: var(--green-mid, #2d6a3f);
     }
-
-    
-    .catalog-content {}
 
     .catalog-top {
       display: flex;
@@ -153,14 +123,8 @@
     .catalog-top h1 {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      color: var(--green-dark);
+      color: var(--green-dark, #1e4d2b);
       font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .catalog-top p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
     }
 
     .sort-row {
@@ -169,107 +133,70 @@
       gap: 10px;
     }
 
-    .sort-row span {
-      font-size: 0.85rem;
-      color: #555;
-    }
-
     .sort-select {
       border: 1.5px solid #222;
       border-radius: 7px;
       padding: 7px 14px;
       font-size: 0.85rem;
       font-weight: 700;
-      font-family: 'Lato', sans-serif;
       background: #fff;
       cursor: pointer;
-      color: #111;
-      outline: none;
-      transition: border-color 0.2s;
     }
 
-    .sort-select:focus {
-      border-color: var(--green-mid);
-    }
-
-    
     .catalog-books-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
+    .book-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
     .catalog-books-grid .book-card img {
-      height: 220px;
+      height: 240px;
+      width: 100%;
       object-fit: cover;
-      background: #e8f0eb;
+      border-radius: 4px;
+      background: #f9f9f9;
     }
 
-    
-    .book-placeholder {
-      height: 220px;
-      background: linear-gradient(135deg, #d4e8da 0%, #b8d4c0 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: var(--green-mid);
-    }
-
-    .book-placeholder .ph-icon {
-      font-size: 2.8rem;
-      opacity: 0.6;
-    }
-
-    .book-placeholder .ph-text {
-      font-size: 0.78rem;
+    .book-title {
       font-weight: 700;
-      opacity: 0.55;
-      text-align: center;
-      padding: 0 12px;
+      margin: 10px 0 2px 0;
+      color: var(--green-dark, #1e4d2b);
+      font-size: 0.95rem;
+    }
+
+    .book-author {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 6px;
     }
 
     .book-price {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      color: var(--green-dark);
-      margin-top: 4px;
+      color: var(--green-mid, #2d6a3f);
     }
 
-    
     @media (max-width: 900px) {
-      .catalog-wrapper {
-        grid-template-columns: 1fr;
-      }
-      .filters-sidebar {
-        position: static;
-      }
-      .catalog-books-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .catalog-books-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-      .catalog-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
+      .catalog-wrapper { grid-template-columns: 1fr; }
+      .filters-sidebar { position: static; }
+      .catalog-books-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  
   <header class="navbar">
     <div class="nav-inner">
       <div class="logo">
-        <img src="imagini/logo1.png" alt="Logo Cartea Mea" />
+        <img src="Imagini/logo1.png" alt="Logo Cartea Mea" onerror="this.style.display='none';" />
         <span>CARTEA MEA</span>
       </div>
       <nav>
@@ -284,22 +211,21 @@
 
   <div class="catalog-wrapper">
 
-    
     <aside class="filters-sidebar">
       <h3>Filtre</h3>
 
       <div class="filter-group">
         <label>Categorie</label>
-        <select class="filter-select">
+        <select id="filter-category" class="filter-select">
           <option value="">Toate categoriile</option>
-          <option>Ficțiune</option>
-          <option>Non-Ficțiune</option>
-          <option>Dezvoltare Personală</option>
-          <option>SF &amp; Fantasy</option>
-          <option>Copii</option>
-          <option>Romance</option>
-          <option>Business</option>
-          <option>Istorie</option>
+          <option value="Ficțiune">Ficțiune</option>
+          <option value="Non-Ficțiune">Non-Ficțiune</option>
+          <option value="Dezvoltare Personală">Dezvoltare Personală</option>
+          <option value="SF &amp; Fantasy">SF &amp; Fantasy</option>
+          <option value="Pentru Copii">Pentru Copii</option>
+          <option value="Romance">Romance</option>
+          <option value="Business">Business</option>
+          <option value="Istorie">Istorie</option>
         </select>
       </div>
 
@@ -308,8 +234,8 @@
       <div class="filter-group">
         <label>Preț (MDL)</label>
         <div class="price-row">
-          <input type="number" class="price-input" placeholder="Min" min="0" />
-          <input type="number" class="price-input" placeholder="Max" min="0" />
+          <input type="number" id="price-min" class="price-input" placeholder="Min" min="0" />
+          <input type="number" id="price-max" class="price-input" placeholder="Max" min="0" />
         </div>
       </div>
 
@@ -317,47 +243,49 @@
 
       <div class="filter-group">
         <label>Autor</label>
-        <select class="filter-select">
+        <select id="filter-author" class="filter-select">
           <option value="">Toți autorii</option>
-          <option>Marin Preda</option>
-          <option>Liviu Rebreanu</option>
-          <option>Jane Austen</option>
-          <option>James Clear</option>
-          <option>George Orwell</option>
-          <option>J.K. Rowling</option>
-          <option>Stephen Hawking</option>
-          <option>Daniel Goleman</option>
-          <option>Grant Cardone</option>
+          <option value="Marin Preda">Marin Preda</option>
+          <option value="Liviu Rebreanu">Liviu Rebreanu</option>
+          <option value="Jane Austen">Jane Austen</option>
+          <option value="James Clear">James Clear</option>
+          <option value="George Orwell">George Orwell</option>
+          <option value="J.K. Rowling">J.K. Rowling</option>
+          <option value="Stephen Hawking">Stephen Hawking</option>
+          <option value="Daniel Goleman">Daniel Goleman</option>
+          <option value="Grant Cardone">Grant Cardone</option>
+          <option value="Antoine de Saint-Exupéry">Antoine de Saint-Exupéry</option>
+          <option value="Robert Kiyosaki">Robert Kiyosaki</option>
+          <option value="Yuval Noah Harari">Yuval Noah Harari</option>
+          <option value="Frank Herbert">Frank Herbert</option>
         </select>
       </div>
 
-      <button class="btn-filter-apply">Aplică filtrele</button>
-      <button class="btn-filter-reset">Resetează filtrele</button>
+      <button class="btn-filter-apply" id="btn-apply">Aplică filtrele</button>
+      <button class="btn-filter-reset" id="btn-reset">Resetează filtrele</button>
     </aside>
 
-    
     <div class="catalog-content">
       <div class="catalog-top">
         <div>
           <h1>Catalog</h1>
-          <p>Descoperă toate cărțile noastre</p>
+          <p>Descoperă toate cărțile noastre </p>
         </div>
         <div class="sort-row">
           <span>Sortează după</span>
-          <select class="sort-select">
-            <option>Cele mai noi</option>
-            <option>Preț crescător</option>
-            <option>Preț descrescător</option>
-            <option>Alfabetic</option>
+          <select id="sort-select" class="sort-select">
+            <option value="newest">Cele mai noi</option>
+            <option value="price-asc">Preț crescător</option>
+            <option value="price-desc">Preț descrescător</option>
+            <option value="alpha">Alfabetic</option>
           </select>
         </div>
       </div>
 
-      <div class="catalog-books-grid">
+      <div class="catalog-books-grid" id="books-grid">
 
-        <div class="book-card">
-          <img src="Imagini/Pădurea_spânzuraților.jpg" alt="Pădurea Spânzuraților"
-               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📗</span><span class=\'ph-text\'>Pădurea Spânzuraților</span>';return d;}()),this);" />
+        <div class="book-card" data-category="Ficțiune" data-author="Liviu Rebreanu" data-price="190" data-id="1">
+          <img src="Imagini/Pădurea_spânzuraților.jpg" alt="Pădurea Spânzuraților" />
           <div class="book-info">
             <p class="book-title">Pădurea Spânzuraților</p>
             <p class="book-author">Liviu Rebreanu</p>
@@ -365,9 +293,8 @@
           </div>
         </div>
 
-        <div class="book-card">
-          <img src="Imagini/mandrie-si-prejudecata-de-jane-austen-2023-p337038-0.jfif" alt="Mândrie și prejudecată"
-               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📘</span><span class=\'ph-text\'>Mândrie și prejudecată</span>';return d;}()),this);" />
+        <div class="book-card" data-category="Romance" data-author="Jane Austen" data-price="175" data-id="2">
+          <img src="Imagini/mandrie-si-prejudecata-de-jane-austen-2023-p337038-0.jfif" alt="Mândrie și prejudecată" />
           <div class="book-info">
             <p class="book-title">Mândrie și prejudecată</p>
             <p class="book-author">Jane Austen</p>
@@ -375,9 +302,8 @@
           </div>
         </div>
 
-        <div class="book-card">
-          <img src="Imagini/image_67203329.jpg" alt="Atomic Habits"
-               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📙</span><span class=\'ph-text\'>Atomic Habits</span>';return d;}()),this);" />
+        <div class="book-card" data-category="Dezvoltare Personală" data-author="James Clear" data-price="240" data-id="3">
+          <img src="Imagini/image_67203329.jpg" alt="Atomic Habits" />
           <div class="book-info">
             <p class="book-title">Atomic Habits</p>
             <p class="book-author">James Clear</p>
@@ -385,9 +311,8 @@
           </div>
         </div>
 
-        <div class="book-card">
-          <img src="Imagini/images12.jfif" alt="Harry Potter și Piatra Filozofală"
-               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📕</span><span class=\'ph-text\'>Harry Potter și Piatra Filozofală</span>';return d;}()),this);" />
+        <div class="book-card" data-category="SF &amp; Fantasy" data-author="J.K. Rowling" data-price="219" data-id="4">
+          <img src="Imagini/images12.jfif" alt="Harry Potter și Piatra Filozofală" />
           <div class="book-info">
             <p class="book-title">Harry Potter și Piatra Filozofală</p>
             <p class="book-author">J.K. Rowling</p>
@@ -395,9 +320,8 @@
           </div>
         </div>
 
-        <div class="book-card">
-          <img src="Imagini/51681-0.jpeg" alt="1984"
-               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📗</span><span class=\'ph-text\'>1984</span>';return d;}()),this);" />
+        <div class="book-card" data-category="Ficțiune" data-author="George Orwell" data-price="190" data-id="5">
+          <img src="Imagini/51681-0.jpeg" alt="1984" />
           <div class="book-info">
             <p class="book-title">1984</p>
             <p class="book-author">George Orwell</p>
@@ -405,9 +329,8 @@
           </div>
         </div>
 
-        <div class="book-card">
-          <img src="Imagini/978-973-50-4546-7.jpg" alt="Scurtă istorie a timpului"
-               onerror="this.parentNode.replaceChild((function(){var d=document.createElement('div');d.className='book-placeholder';d.innerHTML='<span class=\'ph-icon\'>📘</span><span class=\'ph-text\'>Scurtă istorie a timpului</span>';return d;}()),this);" />
+        <div class="book-card" data-category="Non-Ficțiune" data-author="Stephen Hawking" data-price="250" data-id="6">
+          <img src="Imagini/978-973-50-4546-7.jpg" alt="Scurtă istorie a timpului" />
           <div class="book-info">
             <p class="book-title">Scurtă istorie a timpului</p>
             <p class="book-author">Stephen Hawking</p>
@@ -415,11 +338,82 @@
           </div>
         </div>
 
+        <div class="book-card" data-category="Pentru Copii" data-author="J.K. Rowling" data-price="185" data-id="7">
+          <img src="https://carturesti.md/img-prod/118261-0.jpeg" alt="Harry Potter și Camera Secretelor" />
+          <div class="book-info">
+            <p class="book-title">Harry Potter și Camera Secretelor</p>
+            <p class="book-author">J.K. Rowling</p>
+            <p class="book-price">185 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Pentru Copii" data-author="Antoine de Saint-Exupéry" data-price="120" data-id="8">
+          <img src="https://media.elefant.ro/mnresize/1000/-/is/product-images/cartero/c7140063/34b2/4cc0/9888/58ec81e5e804/c7140063-34b2-4cc0-9888-58ec81e5e804_1.PNG" alt="Micul Prinț" />
+          <div class="book-info">
+            <p class="book-title">Micul Prinț</p>
+            <p class="book-author">Antoine de Saint-Exupéry</p>
+            <p class="book-price">120 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Business" data-author="Grant Cardone" data-price="295" data-id="9">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJa6BqUxV2q61nptAwKGkQ8FnTqftIkNMPsg&s" alt="Vinde sau Vei fi Vândut" />
+          <div class="book-info">
+            <p class="book-title">Vinde sau Vei fi Vândut</p>
+            <p class="book-author">Grant Cardone</p>
+            <p class="book-price">295 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Business" data-author="Robert Kiyosaki" data-price="210" data-id="10">
+          <img src="data:image/jpeg;base64,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" alt="Tată Bogat, Tată Sărac" />
+          <div class="book-info">
+            <p class="book-title">Tată Bogat, Tată Sărac</p>
+            <p class="book-author">Robert Kiyosaki</p>
+            <p class="book-price">210 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Istorie" data-author="Yuval Noah Harari" data-price="260" data-id="11">
+          <img src="https://carturesti.md/img-prod/19977-0.jpeg" alt="Sapiens" />
+          <div class="book-info">
+            <p class="book-title">Sapiens. Scurtă istorie</p>
+            <p class="book-author">Yuval Noah Harari</p>
+            <p class="book-price">260 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Dezvoltare Personală" data-author="Daniel Goleman" data-price="230" data-id="12">
+          <img src="https://crafti.md/images/x/00-L1161622_02/00-L1161622_02_large.jpg?v=1711612377" alt="Inteligența Emoțională" />
+          <div class="book-info">
+            <p class="book-title">Inteligența Emoțională</p>
+            <p class="book-author">Daniel Goleman</p>
+            <p class="book-price">230 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="Ficțiune" data-author="Marin Preda" data-price="195" data-id="13">
+          <img src="https://carturesti.md/img-prod/32145-0.jpeg" alt="Moromeții" />
+          <div class="book-info">
+            <p class="book-title">Moromeții</p>
+            <p class="book-author">Marin Preda</p>
+            <p class="book-price">195 MDL</p>
+          </div>
+        </div>
+
+        <div class="book-card" data-category="SF &amp; Fantasy" data-author="Frank Herbert" data-price="280" data-id="14">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHkm_61xhZHNzByNx7Dshof0O1rVH2w9goNw&s" alt="Dune" />
+          <div class="book-info">
+            <p class="book-title">Dune</p>
+            <p class="book-author">Frank Herbert</p>
+            <p class="book-price">280 MDL</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -452,12 +446,88 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Cartea Mea – Toate drepturile rezervate</span>
-      <span>
-        <a href="#">Politică de Confidențialitate</a> &nbsp;|&nbsp;
-        <a href="#">Termeni și Condiții</a>
-      </span>
     </div>
   </footer>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const btnApply = document.getElementById("btn-apply");
+      const btnReset = document.getElementById("btn-reset");
+      const filterCategory = document.getElementById("filter-category");
+      const filterAuthor = document.getElementById("filter-author");
+      const priceMin = document.getElementById("price-min");
+      const priceMax = document.getElementById("price-max");
+      const sortSelect = document.getElementById("sort-select");
+      const booksGrid = document.getElementById("books-grid");
+      
+      const originalBooksOrder = Array.from(booksGrid.children);
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get('categorie');
+      if (catParam) {
+         filterCategory.value = catParam;
+         applyFilters();
+      }
+
+      function applyFilters() {
+        const selectedCat = filterCategory.value;
+        const selectedAuthor = filterAuthor.value;
+        const minP = parseFloat(priceMin.value) || 0;
+        const maxP = parseFloat(priceMax.value) || Infinity;
+
+        originalBooksOrder.forEach(card => {
+          const cat = card.getAttribute("data-category");
+          const author = card.getAttribute("data-author");
+          const price = parseFloat(card.getAttribute("data-price"));
+
+          const matchesCat = !selectedCat || cat === selectedCat;
+          const matchesAuthor = !selectedAuthor || author === selectedAuthor;
+          const matchesPrice = price >= minP && price <= maxP;
+
+          if (matchesCat && matchesAuthor && matchesPrice) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      function sortBooks() {
+        const sortBy = sortSelect.value;
+        let booksArray = Array.from(booksGrid.children);
+
+        if (sortBy === "newest") {
+          booksArray.sort((a, b) => parseInt(a.getAttribute("data-id")) - parseInt(b.getAttribute("data-id")));
+        } else if (sortBy === "price-asc") {
+          booksArray.sort((a, b) => parseFloat(a.getAttribute("data-price")) - parseFloat(b.getAttribute("data-price")));
+        } else if (sortBy === "price-desc") {
+          booksArray.sort((a, b) => parseFloat(b.getAttribute("data-price")) - parseFloat(a.getAttribute("data-price")));
+        } else if (sortBy === "alpha") {
+          booksArray.sort((a, b) => {
+            const titleA = a.querySelector(".book-title").textContent.toLowerCase();
+            const titleB = b.querySelector(".book-title").textContent.toLowerCase();
+            return titleA.localeCompare(titleB);
+          });
+        }
+
+        booksArray.forEach(card => booksGrid.appendChild(card));
+      }
+
+      btnApply.addEventListener("click", applyFilters);
+
+      btnReset.addEventListener("click", function() {
+        filterCategory.value = "";
+        filterAuthor.value = "";
+        priceMin.value = "";
+        priceMax.value = "";
+        sortSelect.value = "newest";
+        
+        originalBooksOrder.forEach(card => card.style.display = "block");
+        sortBooks();
+      });
+
+      sortSelect.addEventListener("change", sortBooks);
+    });
+  </script>
 </body>
 </html>

@@ -37,7 +37,7 @@ img { display: block; max-width: 100%; }
 }
 
 .nav-inner {
-  max-width: 2000px; /* Resetat la valoarea inițială optimă pentru alinierea cu restul site-ului */
+  max-width: 2000px; 
   margin: 0 auto;
   padding: 0 24px;
   height: 60px;
@@ -61,7 +61,7 @@ img { display: block; max-width: 100%; }
   height: 80px;
   width: auto;
   display: block;
-  margin-left: -15px; /* Împinge fin imaginea spre marginea stângă dacă are spații goale */
+  margin-left: -15px; 
 }
 
 nav {
@@ -255,28 +255,29 @@ nav a.active {
 
 .book-card img {
   width: 100%;
-  height: 250px;
-  object-fit: contain;
-  background-color: #fcfcfc;
-  padding: 12px;
+  height: 280px;            
+  object-fit: contain;      
+  background-color: #ebebeb; 
+  padding: 16px;            
   display: block;
 }
 
 .book-info {
-  padding: 12px 14px 14px;
+  padding: 16px 14px;       
   background: var(--white);
   border-top: 1px solid #f0f0f0;
+  flex-grow: 1;             
 }
 
 .book-title {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 4px;
 }
 
 .book-author {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
@@ -385,10 +386,10 @@ nav a.active {
 
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
   
-  /* Adaptare coloane contact pentru tablete/telefoane */
   .contact-container {
     grid-template-columns: 1fr !important;
     gap: 32px;
+    margin: 30px auto;
   }
 }
 
@@ -398,18 +399,17 @@ nav a.active {
 
   .hero-content h1 { font-size: 1.9rem; }
 
-  .categories-grid,
-  .books-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  
+  .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .books-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  
+  
+  .book-card img { height: 210px; padding: 8px; }
 
   .footer-inner { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 }
 
-/* ==========================================
-   NOU: STRUCTURA ȘI REPARARE PAGINĂ CONTACT
-   ========================================== */
-
-/* Containerul principal care pune stânga/dreapta lista și formularul */
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr; 
@@ -420,7 +420,6 @@ nav a.active {
   align-items: start;
 }
 
-/* Formularul din dreapta, acum încadrat curat */
 .contact-form {
   background: var(--white);
   border: 1px solid var(--gray-border);
@@ -429,7 +428,6 @@ nav a.active {
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Stilurile individuale pentru elementele de contact */
 .contact-item {
   display: flex;
   align-items: flex-start;
